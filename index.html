@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+    <h1>
+        <button class="button1" id="mybutton">Change color</button>
+        <span id="color"></span>
+      </h1>
+      <script>
+const mydiv=document.querySelector('button'); 
+const mybutton=document.getElementById('mybutton');
+
+
+
+mybutton.addEventListener('click', () => { 
+  var rannumber1=Math.floor(Math.random() * 256 ); 
+  var rannumber2=Math.floor(Math.random() * 256 ); 
+  var rannumber3=Math.floor(Math.random() * 256 ); 
+  var ranrgb="rgb("+rannumber1+","+rannumber2+","+rannumber3+")";
+  mydiv.style.backgroundColor=ranrgb; }); 
+      </script>
+      </div>
+      <h1 id="myHeading"> Kívánság lista </h1>
+    <p class="intro">Kívánság:</p> 
+    <div class="list">
+       
+        <input type="text" class="addItemInput">
+        <div>
+        <button class="addItemButton">Hozzáad</button>
+      <button class="removeItemButton"> Töröl </button>
+    </div>
+      <ul>
+        <li>Tej</li>
+        <li>Kenyér</li>
+        <li>Ásványvíz</li>
+        <li>Üdítő</li>
+      </ul>
+     </div>
+<script>
+
+
+const userInput = document.querySelector('.userInput');
+const button = document.querySelector('button.description');
+const p = document.querySelector('p.description');
+let listItem = document.querySelectorAll('li');
+
+
+const addItemInput = document.querySelector('.addItemInput');
+const addItemButton = document.querySelector('button.addItemButton');
+
+const removeItemButton = document.querySelector('button.removeItemButton');
+  
+
+const listItems = document.getElementsByTagName('li');
+
+
+
+
+
+
+
+
+addItemButton.addEventListener('click', () => {
+  let list = document.querySelector('ul');
+  let li = document.createElement('li');
+  li.textContent = addItemInput.value;
+  let appendedItem = list.appendChild(li);
+
+  for(let i = 0; i < appendedItem.length; i++) {
+    appendedItem[i].style.color = lastPickedColor;
+    } 
+  addItemInput.value = '';
+});
+
+
+
+removeItemButton.addEventListener('click', () => {
+  let list = document.querySelector('ul');
+  let li = document.querySelector('li:last-child');
+  list.removeChild(li);;
+});
+</script>
+</body>
+</html>
